@@ -1,8 +1,8 @@
-Programming language ///// time          |
+Programming language /////      time     |
 ==========================================
-Python 3                /////  134.540432|
-Java                    ///// 3.668103667|
-c basic                 /////            |
-c incorrectly optimized /////            |
-C optimized             /////            |
+Python 3                ///// 160.417167 |
+Java                    ///// 1.537782167|
+c basic                 ///// 3.921012   |
+C optimized             ///// 1.307271   |
+c incorrectly optimized ///// 5.108511   |
 ==========================================
