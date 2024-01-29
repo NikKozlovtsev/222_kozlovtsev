@@ -217,32 +217,3 @@ hw3:
     li a7, 4
     la a0, skip
     ecall
-    
-    # 16
-    mv t2, zero
-    mv t3, zero
-    addi t2, zero, -5
-    bge t0, t2, else0
-    addi t2, zero, 1
-    beq x0, x0, end0
-  else0:
-  
-    mv t2, zero
-  end0:
-    
-    addi t3, zero, 10
-    ble t1, t3, s
-    addi t3, zero, 1
-    beq x0, x0, endl
-  s:
-  
-    mv t3, zero
-  endl:
-  
-    and t3, t2, t3
-    add a0, zero, t3
-    addi a7, zero, 1
-    ecall
-    li a7, 4
-    la a0, skip
-    ecall
