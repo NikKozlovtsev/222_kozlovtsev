@@ -17,33 +17,30 @@ msg_thickness: .asciiz "Enter the thickness (as an integer): "
 
 .text
 main:
-    # Print message to ask for color
+    # Print 
     li a7, 4
     la a0, msg_color
     ecall
 
-    # Read color from user
+    # Read 
     li a7, 5
     ecall
     mv t0, a0  # Store color in t0
 
-    # Print message to ask for thickness
     li a7, 4
     la a0, msg_thickness
     ecall
 
-    # Read thickness from user
     li a7, 5
     ecall
     mv t1, a0  # Store thickness in t1
 
-    # Calculate start point
+
     li t2, 128   # Bitmap size
     li t3, 64    # Square size
     sub t4, t2, t3  # 128 - 64
     srai t4, t4, 1  # (128 - 64) / 2 = 32, start point
 
-    # Set up for drawing horizontal lines
     mv t5, t4  # y start
     add t6, t4, t3  # y end, t6 = t4 + 64
     mv t7, t4  # x start
@@ -98,9 +95,7 @@ draw_vertical_lines:
     ecall
 
 draw_line:  # a1 = x start, a2 = y start, a3 = x end, a4 = y end, a5 = color, a6 = thickness
-    # Code to draw a line using system call or a loop with pixel drawing, depending on RARS capabilities
-    # This pseudo-instruction represents the need for implementing line drawing, 
-    # which may require iterative drawing of pixels or leveraging specific RARS syscalls.
+
     ret
     ecall
 .end_macro
@@ -138,9 +133,6 @@ pressed:
     beq     t1, s2, loop # repeat if the same key value
     mv      s2, t1 # save current value
 
-    # Prints the pressed key in format 0xXY, where X is column, Y is row.
-    # Both X and Y are specified as bit flags (0x1, 0x2, 0x4, 0x8).
-    # Bit position means the number of row/column (0x1 -> 1, 0x2 -> 2, 0x4 -> 3, x8 -> 4).
     print_hex(t1)
     newline
 
@@ -161,11 +153,6 @@ end:
     li      a7, 1
     ecall
 .end_macro
-
-# Inside the pressed block
-# Use the print_dec macro instead of the print_hex macro
-# Converts the hexadecimal keypress value to decimal and displays
-
 
     beq     t1, s2, loop
     mv      s2, t1
