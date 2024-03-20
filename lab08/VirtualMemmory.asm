@@ -48,9 +48,7 @@ pressed:
     beq     t1, s2, loop # repeat if the same key value
     mv      s2, t1 # save current value
 
-    # Prints the pressed key in format 0xXY, where X is column, Y is row.
-    # Both X and Y are specified as bit flags (0x1, 0x2, 0x4, 0x8).
-    # Bit position means the number of row/column (0x1 -> 1, 0x2 -> 2, 0x4 -> 3, x8 -> 4).
+
     print_hex(t1)
     newline
 
@@ -71,10 +69,6 @@ end:
     li      a7, 1
     ecall
 .end_macro
-
-# Inside the pressed block
-# Use the print_dec macro instead of the print_hex macro
-# Converts the hexadecimal keypress value to decimal and displays
 
 
     beq     t1, s2, loop
